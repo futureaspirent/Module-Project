@@ -7,7 +7,11 @@
   --line-width: 12px;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   margin: 0;
@@ -27,17 +31,17 @@ body {
   border-radius: 10px;
   padding: 18px 22px;
   position: relative;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
   color: #fff;
 }
 
-/* HEADER - Figma Exact */
+/* HEADER - Exact Figma: Border 2px white, padding 12px, radius 12px */
 .score-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px;
-  border: 2px solid white;
+  border: 2px solid #fff;
   border-radius: 12px;
   margin-bottom: 24px;
 }
@@ -49,7 +53,10 @@ body {
   line-height: 30px;
 }
 
-.score2 { display: flex; gap: 12px; }
+.score2 {
+  display: flex;
+  gap: 12px;
+}
 
 .score-box {
   background: #fff;
@@ -67,7 +74,7 @@ body {
   font-size: 15px;
   font-weight: 600;
   color: #666;
-  text-align: center; /* FIXED: Centered */
+  text-align: center; /* FIXED: No extra margins */
 }
 
 .score {
@@ -75,7 +82,7 @@ body {
   font-weight: 500;
 }
 
-/* CHOICES - Figma Exact */
+/* CHOICES - Exact Figma Positions/Angles */
 .triangle-choices {
   position: relative;
   width: 460px;
@@ -92,20 +99,26 @@ body {
 }
 
 .triangle-choices .line.horiz {
-  left: 100px; top: 80px;
-  width: 250px; height: var(--line-width);
+  left: 100px;
+  top: 80px;
+  width: 250px;
+  height: var(--line-width);
 }
 
 .triangle-choices .line.diag-left {
-  left: 120px; top: 100px;
-  width: 200px; height: var(--line-width);
+  left: 120px;
+  top: 100px;
+  width: 200px;
+  height: var(--line-width);
   transform: rotate(60deg);
   transform-origin: left center;
 }
 
 .triangle-choices .line.diag-right {
-  left: 250px; top: 290px;
-  width: 245px; height: var(--line-width);
+  left: 250px;
+  top: 290px; /* FIXED: Figma exact to avoid overlap */
+  width: 245px;
+  height: var(--line-width);
   transform: rotate(-60deg);
   transform-origin: left center;
 }
@@ -122,7 +135,7 @@ body {
   justify-content: center;
   z-index: 2;
   cursor: pointer;
-  transition: none; /* No hover */
+  transition: none; /* FIXED: No hover animation */
 }
 
 .choice-btn img {
@@ -132,12 +145,32 @@ body {
   pointer-events: none;
 }
 
-.choice-top { left: 50px; top: 5px; transform: translate(-50%, -50%); }
-.choice-top-right { left: 290px; top: 7px; transform: translate(-50%, -50%); }
-.choice-bottom { left: 170px; top: 200px; transform: translate(-50%, -50%); }
+.choice-top {
+  left: 50px;
+  top: 5px;
+  transform: translate(-50%, -50%);
+}
 
-.choice-btn.selected { box-shadow: 0 0 0 12px rgba(255,255,255,0.12); }
-.choice-btn.cpu-selected { box-shadow: 0 0 0 8px rgba(18, 166, 48, 0.04); }
+.choice-top-right {
+  left: 290px;
+  top: 7px;
+  transform: translate(-50%, -50%);
+}
+
+.choice-bottom {
+  left: 170px;
+  top: 200px;
+  transform: translate(-50%, -50%);
+}
+
+/* Selected states - Minimal, no animation */
+.choice-btn.selected {
+  box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.12);
+}
+
+.choice-btn.cpu-selected {
+  box-shadow: 0 0 0 8px rgba(18, 166, 48, 0.04);
+}
 
 /* RULES BUTTON - Figma Exact */
 #rulesBtn {
@@ -154,12 +187,16 @@ body {
   font-weight: 600;
 }
 
-/* MODAL - Text Rules Figma Exact */
+/* MODAL - Figma Exact: Padding 40px, Radius 20px, Bullets */
 .modal {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.45);
-  display: flex; justify-content: center; align-items: center;
-  z-index: 1200; padding: 20px;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+  padding: 20px;
 }
 
 .modal-content {
@@ -176,8 +213,8 @@ body {
   top: 20px;
   right: 20px;
   background: #f90202;
-  color: white;
-  border: 5px solid white;
+  color: #fff;
+  border: 5px solid #fff;
   border-radius: 50%;
   width: 65px;
   height: 65px;
@@ -187,6 +224,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
 }
 
 #rulesTitle {
@@ -207,10 +245,10 @@ body {
   content: "•";
   position: absolute;
   left: 0;
-  color: white;
+  color: #fff;
 }
 
-/* RESULT SCREEN - Figma Exact */
+/* RESULT SCREEN - Figma Exact: Width 70%, Gap 20px */
 .result-screen {
   display: flex;
   align-items: center;
@@ -220,95 +258,249 @@ body {
   gap: 20px;
 }
 
-.result-column { flex: 1; text-align: center; }
-.label { font-weight: 500; margin-bottom: 18px; }
+.result-column {
+  flex: 1;
+  text-align: center;
+}
 
-.big-circle, .small-circle {
-  width: 140px; height: 140px;
+.label {
+  font-weight: 500;
+  margin-bottom: 18px;
+  color: #fff;
+}
+
+.big-circle,
+.small-circle {
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  position: relative;
+  position: relative; /* For rings */
 }
 
-.pick-img { width: 82px; height: 82px; }
+.pick-img {
+  width: 82px;
+  height: 82px;
+}
 
-.result-center { flex: 0 0 34%; text-align: center; }
-.center-result { font-size: 28px; font-weight: 800; margin-bottom: 18px; }
-.play-again, .next-btn {
-  background: #fff; color: #111;
-  border-radius: 8px; border: none;
-  padding: 10px 18px; font-weight: 700;
+.result-center {
+  flex: 0 0 34%;
+  text-align: center;
+}
+
+.center-result {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.play-again,
+.next-btn {
+  background: #fff;
+  color: #111;
+  border-radius: 8px;
+  border: none;
+  padding: 10px 18px;
+  font-weight: 700;
   cursor: pointer;
   margin-top: 10px;
 }
 
-.hidden { display: none !important; }
-
-/* CORRECTED: STATIC GREEN RINGS - Instant, No Animation */
-.winner-pick::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px; height: 200px;
-  border-radius: 50%;
-  border: 12px solid #28A745;
-  opacity: 1; /* Instant */
-  z-index: -1;
-  box-shadow: 
-    0 0 0 20px #10CB64,
-    0 0 0 40px #03E669;
+.hidden {
+  display: none !important;
 }
 
-/* HURRAY - Figma Exact */
+/* GREEN RINGS - FIXED: Static, Instant, No Animation, 3 Concentric */
+.winner-pick::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 12px solid #28a745;
+  opacity: 1; /* Instant show */
+  z-index: -1;
+  box-shadow:
+    0 0 0 20px #10cb64, /* Middle ring */
+    0 0 0 40px #03e669; /* Inner ring */
+}
+
+/* HURRAY PAGE - Figma Exact: 900x500, Trophy 200px */
 .hurry-full {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.45);
-  display: flex; justify-content: center; align-items: center;
-  z-index: 1000; padding: 20px;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
 }
 
 .hurry-inner {
   background: #8fc96b;
-  width: 900px; max-width: 95%;
+  width: 900px;
+  max-width: 95%;
   height: 500px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
   text-align: center;
 }
 
-.hurry-trophy { width: 200px; height: 210px; margin-bottom: 20px; }
-.hurry-title { font-size: 48px; font-weight: 600; letter-spacing: 0.2em; margin: 0; }
-.hurry-sub { font-size: 23px; font-weight: 500; margin-top: 10px; letter-spacing: 0.1em; }
-.hurry-play { margin-top: 30px; width: 160px; }
+.hurry-trophy {
+  width: 200px; /* FIXED: Figma size */
+  height: 210px;
+  margin-bottom: 20px;
+}
 
-/* RESPONSIVE - Figma */
+.hurry-title {
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.hurry-sub {
+  font-size: 23px;
+  font-weight: 500;
+  margin-top: 10px;
+  letter-spacing: 0.1em;
+}
+
+.hurry-play {
+  margin-top: 30px;
+  width: 160px;
+}
+
+/* RESPONSIVE - FIXED: No Overlap at 350px */
 @media (max-width: 600px) {
-  .triangle-choices { width: 320px; height: 250px; }
-  .choice-btn { width: 100px; height: 100px; }
-  .choice-btn img { width: 60px; height: 60px; }
-  .line.horiz { left: 70px; top: 60px; width: 180px; }
-  .line.diag-left { left: 90px; top: 80px; width: 150px; }
-  .line.diag-right { left: 190px; top: 200px; width: 180px; }
-  .big-circle, .small-circle { width: 100px; height: 100px; }
-  .pick-img { width: 60px; height: 60px; }
-  .winner-pick::after { width: 140px; height: 140px; border-width: 8px; box-shadow: 0 0 0 15px #10CB64, 0 0 0 30px #03E669; }
-  .hurry-inner { height: 400px; }
-  .hurry-trophy { width: 150px; height: 160px; }
-  .hurry-title { font-size: 32px; }
-  .hurry-sub { font-size: 18px; }
+  .triangle-choices {
+    width: 320px;
+    height: 250px;
+  }
+
+  .choice-btn {
+    width: 100px;
+    height: 100px;
+  }
+
+  .choice-btn img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .line.horiz {
+    left: 70px;
+    top: 60px;
+    width: 180px;
+  }
+
+  .line.diag-left {
+    left: 90px;
+    top: 80px;
+    width: 150px;
+  }
+
+  .line.diag-right {
+    left: 190px;
+    top: 200px; /* FIXED: Adjusted for no overlap */
+    width: 180px;
+  }
+
+  .big-circle,
+  .small-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .pick-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .winner-pick::after {
+    width: 140px;
+    height: 140px;
+    border-width: 8px;
+    box-shadow: 0 0 0 15px #10cb64, 0 0 0 30px #03e669;
+  }
+
+  .hurry-inner {
+    height: 400px;
+  }
+
+  .hurry-trophy {
+    width: 150px;
+    height: 160px;
+  }
+
+  .hurry-title {
+    font-size: 32px;
+  }
+
+  .hurry-sub {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 400px) {
-  .score-header { flex-direction: column; gap: 12px; }
-  .score-box { width: 100px; height: 80px; }
-  .score { font-size: 32px; }
+  .score-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .score-box {
+    width: 100px;
+    height: 80px;
+  }
+
+  .score {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 350px) {
+  .triangle-choices {
+    width: 280px;
+    height: 220px;
+  }
+
+  .choice-btn {
+    width: 80px;
+    height: 80px;
+  }
+
+  .choice-btn img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .line.horiz {
+    left: 60px;
+    top: 50px;
+    width: 150px;
+  }
+
+  .line.diag-left {
+    left: 70px;
+    top: 70px;
+    width: 120px;
+  }
+
+  .line.diag-right {
+    left: 160px;
+    top: 180px; /* FIXED: No overlap */
+    width: 150px;
+  }
 }
