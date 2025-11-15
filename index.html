@@ -23,7 +23,6 @@
     </header>
     <section class="game-choices" aria-label="Make a choice">
       <div class="triangle-choices" role="group" aria-label="Rock Paper Scissors choices">
-      
         <span class="line horiz" aria-hidden="true"></span>
         <span class="line diag-left" aria-hidden="true"></span>
         <span class="line diag-right" aria-hidden="true"></span>
@@ -42,10 +41,9 @@
       </div>
     </section>
 
-    
     <div id="resultScreen" class="result-screen hidden" aria-live="polite" aria-hidden="true">
       <div class="result-column user-column">
-        <div class="label" >YOU PICKED</div>
+        <div class="label">YOU PICKED</div>
         <div class="pick-display user-pick">
           <div class="big-circle">
             <img src="" alt="" class="pick-img user-img"/>
@@ -62,11 +60,8 @@
       <div class="result-column pc-column">
         <div class="label">PC PICKED</div>
         <div class="pick-display pc-pick">
-          <div class="pc-pick-outer">
-            <div class="pc-rings" aria-hidden="true"></div>
-            <div class="small-circle">
-              <img src="" alt="" class="pick-img pc-img"/>
-            </div>
+          <div class="small-circle">
+            <img src="" alt="" class="pick-img pc-img"/>
           </div>
         </div>
       </div>
@@ -74,26 +69,27 @@
 
     <div class="result-area" id="resultArea" aria-live="polite"></div>
 
+    <!-- CORRECTED: Text Rules Only -->
     <div id="rulesModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="rulesTitle">
       <div class="modal-content">
-        <button id="closeRules" aria-label="Close rules" style="font-size: 30px;">X</button>
-        <h2 id="rulesTitle"><img src="rules.png" alt="rules"/></h2>
-  
+        <button id="closeRules" aria-label="Close rules">X</button>
+        <h2 id="rulesTitle">RULES</h2>
+        <div class="rules-text">
+          <p>Rock beats Scissors</p>
+          <p>Scissors beats Paper</p>
+          <p>Paper beats Rock</p>
+          <p>Same choices result in a TIE</p>
+        </div>
       </div>
     </div>
 
     <button id="rulesBtn" class="rules-open" type="button" aria-haspopup="dialog">RULES</button>
-
     <div id="hurryFull" class="hurry-full hidden" aria-hidden="true" role="dialog" aria-label="Celebration">
       <div class="hurry-inner">
-        <img src="Group 5.png" alt="Confetti" class="hurry-confetti" />
-        <img src="Vector.png" alt="Hurray" class="hurry-trophy" />
+        <img src="Vector.png" alt="Trophy" class="hurry-trophy" />
         <h1 class="hurry-title">HURRAY!!</h1>
         <p class="hurry-sub">YOU WON THE GAME</p>
         <button id="hurryFullPlay" class="play-again hurry-play">PLAY AGAIN</button>
-        <button id="rulesBtn" class="rules-open" type="button" aria-haspopup="dialog">RULES</button>
-
-        
       </div>
     </div>
   </main>
