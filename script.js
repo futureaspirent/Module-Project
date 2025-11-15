@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const STORAGE_USER = "rps_userScore";
   const STORAGE_CPU = "rps_cpuScore";
 
+  // CORRECTED: Load Scores (No Reset)
   let userScore = parseInt(localStorage.getItem(STORAGE_USER)) || 0;
   let cpuScore = parseInt(localStorage.getItem(STORAGE_CPU)) || 0;
 
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     gameChoicesSection.classList.remove("hidden");
     nextBtn.classList.add("hidden");
 
-    // FIXED: Clear Rings
+    // CORRECTED: Clear Rings
     bigCircle.classList.remove("winner-pick");
     smallCircle.classList.remove("winner-pick");
 
@@ -74,11 +75,11 @@ document.addEventListener("DOMContentLoaded", () => {
         resultText = "YOU WIN";
         userScore++;
         isUserWin = true;
-        bigCircle.classList.add("winner-pick"); // Static rings on user
+        bigCircle.classList.add("winner-pick"); // Static rings
       } else {
         resultText = "YOU LOSE";
         cpuScore++;
-        smallCircle.classList.add("winner-pick"); // Static rings on PC
+        smallCircle.classList.add("winner-pick"); // Static rings
       }
 
       const getImg = (choice) => {
